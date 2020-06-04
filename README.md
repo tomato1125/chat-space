@@ -4,19 +4,21 @@
 
 |column|Type|Options|
 |------|----|-------|
-|username|string|null: false|
+|name|string|null: false|
 |email|string|null: false|
 |password|string|null: false|
 
 ### Association
 - has_many :tweets
+- has_many :groups, through :users_groups
+- has_many :users_groups
 
 ## users_groupsテーブル
 
 |column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
@@ -26,18 +28,21 @@
 
 |column|Type|Options|
 |------|----|-------|
-|group|string|null: false|
+|name|string|null: false|
 
 ### Association
 - has_many :tweets
+- has_many :users, through :users_groups
+- has_many :users_groups
 
 ## tweetsテーブル
 
 |column|Type|Options|
 |------|----|-------|
-|tweet|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|ingeter|null: false, foreign_key: true|
+|text|text|
+|image|string|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
