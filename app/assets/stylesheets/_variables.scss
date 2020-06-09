@@ -1,0 +1,17 @@
+@mixin -fontdesign($font-weight, $color, $font-size) {
+  font-weight: $font-weight;
+  color: $color;
+  font-size: $font-size;
+}
+@mixin -size($height, $width) {
+  height: $height;
+  width: $width;
+}
+@mixin -fontstyle($color, $font-size) {
+  color: $color;
+  font-size: $font-size;
+}
+
+$btn_color: #38aef0;
+$side_fontcolor: #ffffff;
+$sub_text_color: #999999

@@ -1,12 +1,3 @@
-@mixin -fontstyle($color, $font-size) {
-  color: $color;
-  font-size: $font-size;
-}
-@mixin -size($height, $width) {
-  height: $height;
-  width: $width;
-}
-
 .MainChat {
   @include -size(100vh, calc(100vw - 300px));
   .MainHeader {
@@ -20,23 +11,23 @@
       .GroupDetails {
         margin-top: 35px;
         .GroupName {
-          @include -fontstyle(#333333, 20px)
+          @include -fontstyle(#333333, 20px);
         }
         &__Menber {
-          @include -fontstyle(#999999, 12px);
+          @include -fontstyle($sub_text_color, 12px);
           margin-top: 15px;
           display: flex;
           &__lists {
-            @include -fontstyle(#999999, 12px);
+            @include -fontstyle($sub_text_color, 12px);
             margin-left: 5px;
           }
         }
       }
       .Edit__btn {
-        @include -fontstyle(#38aef0, 16px);
+        @include -fontstyle($btn_color, 16px);
         @include -size(40px, 72px);
         line-height: 40px;
-        border: 1px solid #38aef0;
+        border: 1px solid $btn_color;
         margin-top: 28px;
         display: block;
         padding: 0px 20px;
@@ -58,7 +49,7 @@
           @include -fontstyle(#333333, 16px);
         }
         &__Date {
-          @include -fontstyle(#999999, 12px);
+          @include -fontstyle($sub_text_color, 12px);
           margin-left: 5px;
         }
       }
@@ -101,8 +92,8 @@
       .send-btn {
         @include -fontstyle(#ffffff, 15px);
         height: 50px;
-        border: 1px solid #38aef0;
-        background-color: #38aef0;
+        border: 1px solid $btn_color;
+        background-color: $btn_color;
         align-items: flex-start;
         text-align: center;
         padding: 0px 30px;
