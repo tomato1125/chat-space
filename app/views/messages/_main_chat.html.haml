@@ -1,0 +1,29 @@
+.MainChat
+  .MainHeader
+    .GroupBox
+      .GroupDetails
+        .GroupName TEST
+        %ul.GroupDetails__Menber 
+          Menber :
+          %li.Menber__lists name
+      .Edit
+        = link_to "/#", class: "Edit__btn" do
+          Edit
+  .Message
+    .MassageBox
+      .MassageDetails
+        .MassageDetails__Massanger tomato1125
+        .MassageDetails__Date 2020/06/08(Mon) 12:38:30
+      .MassageText 
+        おはようございます。
+  .MainChat__Form
+    .Form__Tmp
+    %form.FormBox
+      .FormBox__FormTmp
+      .MessageBox
+        %input.MessageBox__text{"placeholder": "type a message", "type": "text"}
+        %label.MessageBox__image{"for": "images"}
+          = icon('far', 'image')
+          %input.MessageBox__image__noName{"type": "file", "name": "message", "id": "images"}
+      .send
+        %input.send-btn{"type": "submit", "name": "commit", "value": "Send"}

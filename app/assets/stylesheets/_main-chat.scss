@@ -1,0 +1,113 @@
+@mixin -fontstyle($color, $font-size) {
+  color: $color;
+  font-size: $font-size;
+}
+@mixin -size($height, $width) {
+  height: $height;
+  width: $width;
+}
+
+.MainChat {
+  @include -size(100vh, calc(100vw - 300px));
+  .MainHeader {
+    @include -size(100px, calc(100vw - 300px));
+    background-color: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+    padding: 0px 40px;
+    .GroupBox {
+      display: flex;
+      justify-content: space-between;
+      .GroupDetails {
+        margin-top: 35px;
+        .GroupName {
+          @include -fontstyle(#333333, 20px)
+        }
+        &__Menber {
+          @include -fontstyle(#999999, 12px);
+          margin-top: 15px;
+          display: flex;
+          &__lists {
+            @include -fontstyle(#999999, 12px);
+            margin-left: 5px;
+          }
+        }
+      }
+      .Edit__btn {
+        @include -fontstyle(#38aef0, 16px);
+        @include -size(40px, 72px);
+        line-height: 40px;
+        border: 1px solid #38aef0;
+        margin-top: 28px;
+        display: block;
+        padding: 0px 20px;
+        text-align: center;
+        text-decoration: none;
+      }
+    }
+  }
+  .Message {
+    @include -size(calc(100vh - 190px), calc(100vw - 300px));
+    padding: 35px 40px ;
+    background-color: #fafafa;
+    .MassageBox {
+      margin-bottom: 46px;
+      .MassageDetails {
+        display: flex;
+        text-align: left;
+        &__Massanger {
+          @include -fontstyle(#333333, 16px);
+        }
+        &__Date {
+          @include -fontstyle(#999999, 12px);
+          margin-left: 5px;
+        }
+      }
+      .MassageText {
+        @include -fontstyle(#434a54, 14px);
+        margin-top: 12px;
+      }
+    }
+  }
+  &__Form {
+    @include -size(90px, 100%);
+    padding: 20px 50px 20px 40px;
+    background-color: #d2d2d2;
+    .FormBox {
+      width: 100%;
+      display: flex;
+      &__FormTmp {
+        background-color: #d2d2d2;
+      }
+      .MessageBox {
+        @include -size(50px, 100%);
+        display: flex;
+        position: relative;
+        &__text {
+          font-size: 12px;
+          width: 100%;
+          padding: 0px 45px 0px 10px;
+        }
+        &__image {
+          font-size: 25px;
+          line-height: 50px;
+          font-weight: bold;
+          position: absolute;
+          right: 10px;
+          &__noName {
+            display: none;
+          }
+        }
+      }
+      .send-btn {
+        @include -fontstyle(#ffffff, 15px);
+        height: 50px;
+        border: 1px solid #38aef0;
+        background-color: #38aef0;
+        align-items: flex-start;
+        text-align: center;
+        padding: 0px 30px;
+        margin-left: 15px;
+      }
+    }
+  }
+}
