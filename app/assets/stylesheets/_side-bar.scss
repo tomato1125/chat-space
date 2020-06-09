@@ -1,0 +1,50 @@
+.SideBar {
+  @include -size(100vh, 300px);
+  .SideHeader {
+    @include -size(100px, 300px);
+    background-color: #253141;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .HeaderBox {
+      @include -size(20px, 260px);
+      margin: 0 20px;
+      display: flex;
+      justify-content:space-between;
+      align-items: center;
+      .Name {
+        @include -fontdesign(bold, $side_fontcolor, 16px);
+      }
+      .Icon {
+        @include -fontdesign(bold, $side_fontcolor, 16px);
+        @include -size(20px, 60px);
+        display: block;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        &--NewChatGroup {
+          color: $side_fontcolor;
+        }
+        &--AccountEdit {
+          margin-left: 5px;
+          color: $side_fontcolor;
+        } 
+      }
+    }
+  }
+  .GroupList {
+    height: calc(100vh - 100px);
+    background-color: #2f3e51;
+    padding: 0px 20px;
+    .GroupBox {
+      padding: 20px 0px 40px 0px;
+      .GroupName {
+        @include -fontdesign(bold, $side_fontcolor, 15px);
+        margin-bottom: 5px;
+      }
+      .NewMessage {
+        @include -fontdesign(bold, $side_fontcolor, 11px);
+      }
+    }
+  }
+}
