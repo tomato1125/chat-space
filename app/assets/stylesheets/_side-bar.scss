@@ -12,20 +12,19 @@
       display: flex;
       justify-content:space-between;
       align-items: center;
-      .Name {
+      &__Name {
         @include -fontdesign(bold, $side_fontcolor, 16px);
       }
-      .Icon {
+      &__Icon {
         @include -fontdesign(bold, $side_fontcolor, 16px);
         @include -size(20px, 60px);
-        display: block;
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        &--NewChatGroup {
+        &__NewChatGroupIcon {
           color: $side_fontcolor;
         }
-        &--AccountEdit {
+        &__AccountEditIcon {
           margin-left: 5px;
           color: $side_fontcolor;
         } 
