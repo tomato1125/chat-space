@@ -13,7 +13,7 @@
 - has_many :groups, through :users_groups
 - has_many :users_groups
 
-## users_groupsテーブル
+## groups_usersテーブル
 
 |column|Type|Options|
 |------|----|-------|
@@ -35,11 +35,11 @@
 - has_many :users, through :users_groups
 - has_many :users_groups
 
-## tweetsテーブル
+## messagesテーブル
 
 |column|Type|Options|
 |------|----|-------|
-|text|string|
+|content|string|
 |image|string|
 |user|references|null: false, foreign_key: true|
 |group|references|null: false, foreign_key: true|
