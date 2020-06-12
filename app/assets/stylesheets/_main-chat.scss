@@ -1,104 +1,215 @@
-.MainChat {
-  @include -size(100vh, calc(100vw - 300px));
-  .MainHeader {
-    @include -size(100px, calc(100vw - 300px));
-    background-color: #ffffff;
-    border-bottom: 1px solid #eeeeee;
-    padding: 0px 40px;
-    .GroupBox {
-      display: flex;
-      justify-content: space-between;
-      .GroupDetails {
-        margin-top: 35px;
-        .GroupName {
-          @include -fontstyle(#333333, 20px);
-        }
-        &__Menber {
-          @include -fontstyle($sub_text_color, 12px);
-          margin-top: 15px;
-          display: flex;
-          &__lists {
-            @include -fontstyle($sub_text_color, 12px);
-            margin-left: 5px;
-          }
-        }
-      }
-      .Edit__btn {
-        @include -fontstyle($btn_color, 16px);
-        @include -size(40px, 72px);
-        line-height: 40px;
-        border: 1px solid $btn_color;
-        margin-top: 28px;
-        display: block;
-        padding: 0px 20px;
-        text-align: center;
-        text-decoration: none;
-      }
-    }
+.Chat {
+  width: calc(100vw - 300px);
+}
+
+.ChatHeader {
+  height: 100px;
+  padding: 0 40px;
+  border-bottom: solid 1px #eee;
+  display: flex;
+  justify-content: space-between;
+  &__groupName {
+    @include -fontstyle(#333333, 20px);
+    margin-top: 35px;
   }
-  .Message {
-    @include -size(calc(100vh - 190px), calc(100vw - 300px));
-    padding: 35px 40px ;
-    background-color: #fafafa;
-    .MassageBox {
-      margin-bottom: 46px;
-      .MassageDetails {
-        display: flex;
-        text-align: left;
-        &__Massanger {
-          @include -fontstyle(#333333, 16px);
-        }
-        &__Date {
-          @include -fontstyle($sub_text_color, 12px);
-          margin-left: 5px;
-        }
-      }
-      .MassageText {
-        @include -fontstyle(#434a54, 14px);
-        margin-top: 12px;
-      }
-    }
+  &__memberList {
+    @include -fontstyle($sub_text_color, 12px);
+    display: flex;
+    margin-top: 15px;
   }
-  &__Form {
-    @include -size(90px, 100%);
-    padding: 20px 50px 20px 40px;
-    background-color: #d2d2d2;
-    .FormBox {
-      width: 100%;
-      display: flex;
-      &__FormTmp {
-        background-color: #d2d2d2;
-      }
-      .MessageBox {
-        @include -size(50px, 100%);
-        display: flex;
-        position: relative;
-        &__text {
-          font-size: 12px;
-          width: 100%;
-          padding: 0px 45px 0px 10px;
-        }
-        &__image {
-          font-size: 25px;
-          line-height: 50px;
-          font-weight: bold;
-          position: absolute;
-          right: 10px;
-          &__noName {
-            display: none;
-          }
-        }
-      }
-      .send-btn {
-        @include -fontstyle(#ffffff, 15px);
-        height: 50px;
-        border: 1px solid $btn_color;
-        background-color: $btn_color;
-        align-items: flex-start;
-        text-align: center;
-        padding: 0px 30px;
-        margin-left: 15px;
-      }
-    }
+  &__member {
+    padding-right: 5px;
+  }
+  &__editButton {
+    display: block;
+    border: 1px solid $btn_color;
+    color: $btn_color;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 28px;
+    padding: 0 20px;
+    text-decoration: none;
   }
 }
+
+.MessageField {
+  background-color: #fafafa;
+  box-sizing: border-box;
+  padding: 35px 40px 0;
+  height: calc(100vh - 100px - 90px);
+  overflow: scroll;
+}
+
+.MessageBox{
+  margin-bottom: 46px;
+}
+
+.MessageInfo {
+  display: flex;
+  &__userName {
+    @include -fontstyle(#333333, 16px);
+    font-weight: bold;
+  }
+  &__date {
+    @include -fontstyle($sub_text_color, 12px);
+    padding-left: 10px;
+  }
+}
+.Message {
+  margin-top: 12px;
+  &__content {
+    @include -fontstyle(#434a54, 14px);
+  }
+  &__image{
+    height: 300px;
+  }
+}
+
+.Footer {
+  background-color: #dddddd;
+  box-sizing: border-box;
+  height: 90px;
+  padding: 20px 50px 20px 40px;
+}
+
+.Form{
+  display: flex;
+  justify-content: space-between;
+  &__contents{
+    width: 100%;
+    background-color: #fff;
+    position: relative;
+  }
+  &__inputContent {
+    @include -size(50px, 100%);
+    border: none;
+    padding: 0 45px 0 15px;
+  }
+  &__inputImage {
+    height: 50px;
+    position: absolute;
+    right: 10px;
+  }
+  .fa-image {
+    line-height: 50px;
+    font-size: 25px;
+  }
+
+  &__submit {
+    background-color: $btn_color;
+    border: none;
+    color: $side_fontcolor;
+    font-size: 16px;
+    height: 50px;
+    margin-left: 15px;
+    padding: 0 30px;
+  }
+  .Hidden {
+    display: none;
+  }
+}
+
+// .MainChat {
+//   @include -size(100vh, calc(100vw - 300px));
+//   .MainHeader {
+//     @include -size(100px, calc(100vw - 300px));
+//     background-color: #ffffff;
+//     border-bottom: 1px solid #eeeeee;
+//     padding: 0px 40px;
+//     .GroupBox {
+//       display: flex;
+//       justify-content: space-between;
+//       .GroupDetails {
+//         margin-top: 35px;
+//         .GroupName {
+//           @include -fontstyle(#333333, 20px);
+//         }
+//         &__Menber {
+//           @include -fontstyle($sub_text_color, 12px);
+//           margin-top: 15px;
+//           display: flex;
+//           &__lists {
+//             @include -fontstyle($sub_text_color, 12px);
+//             margin-left: 5px;
+//           }
+//         }
+//       }
+//       .Edit__btn {
+//         @include -fontstyle($btn_color, 16px);
+//         @include -size(40px, 72px);
+//         line-height: 40px;
+//         border: 1px solid $btn_color;
+//         margin-top: 28px;
+//         display: block;
+//         padding: 0px 20px;
+//         text-align: center;
+//         text-decoration: none;
+//       }
+//     }
+//   }
+//   .Message {
+//     @include -size(calc(100vh - 190px), calc(100vw - 300px));
+//     padding: 35px 40px ;
+//     background-color: #fafafa;
+//     .MassageBox {
+//       margin-bottom: 46px;
+//       .MassageDetails {
+//         display: flex;
+//         text-align: left;
+//         &__Massanger {
+//           @include -fontstyle(#333333, 16px);
+//         }
+//         &__Date {
+//           @include -fontstyle($sub_text_color, 12px);
+//           margin-left: 5px;
+//         }
+//       }
+//       .MassageText {
+//         @include -fontstyle(#434a54, 14px);
+//         margin-top: 12px;
+//       }
+//     }
+//   }
+//   &__Form {
+//     @include -size(90px, 100%);
+//     padding: 20px 50px 20px 40px;
+//     background-color: #d2d2d2;
+//     .FormBox {
+//       width: 100%;
+//       display: flex;
+//       &__FormTmp {
+//         background-color: #d2d2d2;
+//       }
+//       .MessageBox {
+//         @include -size(50px, 100%);
+//         display: flex;
+//         position: relative;
+//         &__text {
+//           font-size: 12px;
+//           width: 100%;
+//           padding: 0px 45px 0px 10px;
+//         }
+//         &__image {
+//           font-size: 25px;
+//           line-height: 50px;
+//           font-weight: bold;
+//           position: absolute;
+//           right: 10px;
+//           &__noName {
+//             display: none;
+//           }
+//         }
+//       }
+//       .send-btn {
+//         @include -fontstyle(#ffffff, 15px);
+//         height: 50px;
+//         border: 1px solid $btn_color;
+//         background-color: $btn_color;
+//         align-items: flex-start;
+//         text-align: center;
+//         padding: 0px 30px;
+//         margin-left: 15px;
+//       }
+//     }
+//   }
+// }
