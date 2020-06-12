@@ -1,49 +1,107 @@
 .SideBar {
-  @include -size(100vh, 300px);
-  .SideHeader {
-    @include -size(100px, 300px);
-    background-color: #253141;
+  color: $side_fontcolor;
+  width: 300px;
+}
+
+.SideHeader {
+  background-color: #253141;
+  height: 100px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  &__list{
+    @include -size(20px, 260px);
     display: flex;
-    justify-content: center;
-    align-items: center;
-    .HeaderBox {
-      @include -size(20px, 260px);
-      margin: 0 20px;
-      display: flex;
-      justify-content:space-between;
-      align-items: center;
-      &__Name {
-        @include -fontdesign(bold, $side_fontcolor, 16px);
-      }
-      &__Icon {
-        @include -fontdesign(bold, $side_fontcolor, 16px);
-        @include -size(20px, 60px);
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        &__NewChatGroupIcon {
-          color: $side_fontcolor;
-        }
-        &__AccountEditIcon {
-          margin-left: 5px;
-          color: $side_fontcolor;
-        } 
-      }
-    }
+    justify-content: space-between;
   }
-  .GroupList {
-    height: calc(100vh - 100px);
-    background-color: #2f3e51;
-    padding: 0px 20px;
-    .GroupBox {
-      padding: 20px 0px 40px 0px;
-      .GroupName {
-        @include -fontdesign(bold, $side_fontcolor, 15px);
-        margin-bottom: 5px;
-      }
-      .NewMessage {
-        @include -fontdesign(bold, $side_fontcolor, 11px);
-      }
+  &__userName {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  &__iconList {
+    display: flex;
+    justify-content: end;
+  }
+  &__Icon {
+    margin-left: 5px;
+    a {
+      color: $side_fontcolor;
+      font-size: 16px;
     }
   }
 }
+
+.GroupList {
+  background-color: #2f3e51;
+  height: calc(100vh - 100px);
+  padding: 0 20px;
+  overflow: scroll;
+}
+
+.Group {
+  box-sizing: border-box;
+  padding: 20px 0 40px;
+
+  a {
+    color: $side_fontcolor;
+    text-decoration: none;
+  }
+  &__name {
+    font-size: 15px;
+  }
+  &__message {
+    font-size: 11px;
+    margin-top: 5px;
+  }
+}
+
+
+// .SideBar {
+//   @include -size(100vh, 300px);
+//   .SideHeader {
+//     @include -size(100px, 300px);
+//     background-color: #253141;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     .HeaderBox {
+//       @include -size(20px, 260px);
+//       margin: 0 20px;
+//       display: flex;
+//       justify-content:space-between;
+//       align-items: center;
+//       &__Name {
+//         @include -fontdesign(bold, $side_fontcolor, 16px);
+//       }
+//       &__Icon {
+//         @include -fontdesign(bold, $side_fontcolor, 16px);
+//         @include -size(20px, 60px);
+//         display: flex;
+//         justify-content: flex-end;
+//         align-items: center;
+//         &__NewChatGroupIcon {
+//           color: $side_fontcolor;
+//         }
+//         &__AccountEditIcon {
+//           margin-left: 5px;
+//           color: $side_fontcolor;
+//         } 
+//       }
+//     }
+//   }
+//   .GroupList {
+//     height: calc(100vh - 100px);
+//     background-color: #2f3e51;
+//     padding: 0px 20px;
+//     .GroupBox {
+//       padding: 20px 0px 40px 0px;
+//       .GroupName {
+//         @include -fontdesign(bold, $side_fontcolor, 15px);
+//         margin-bottom: 5px;
+//       }
+//       .NewMessage {
+//         @include -fontdesign(bold, $side_fontcolor, 11px);
+//       }
+//     }
+//   }
+// }

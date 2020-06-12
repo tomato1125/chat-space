@@ -1,20 +1,41 @@
 .SideBar
   .SideHeader
-    .HeaderBox
-      %h3.HeaderBox__Name
+    .SideHeader__list
+      %h3.SideHeader__userName
         = current_user.name
-      %ul.HeaderBox__Icon
-        %li.HeaderBox__NewChatGroupIcon
+      %ul.SideHeader__iconList
+        %li.SideHeader__Icon
           = link_to new_group_path do
-            = icon('far', 'edit')
-        %li.HeaderBox__AccountEditIcon
+            = icon('fas', 'edit')
+        %li.SideHeader__Icon
           = link_to edit_user_path(current_user) do
             = icon('fas', 'cog')
   .GroupList
     - current_user.groups.each do |group|
-      .GroupBox
-        = link_to '#' do
-          .GroupBox__Name
+      .Group
+        = link_to group_messages_path(group) do
+          .Group__name
             = group.name
-          .GroupBox__NewMessage
-            まだメッセージがありません
+          .Group__message
+            = group.show_last_message
+
+-# .SideBar
+-#   .SideHeader
+-#     .HeaderBox
+-#       %h3.HeaderBox__Name
+-#         = current_user.name
+-#       %ul.HeaderBox__Icon
+-#         %li.HeaderBox__NewChatGroupIcon
+-#           = link_to new_group_path class:HeaderBox__NewChatGroupIcon do
+-#             = icon('far', 'edit') 
+-#         %li.HeaderBox__AccountEditIcon
+-#           = link_to edit_user_path(current_user), HeaderBox__AccountEditIcon do
+-#             = icon('fas', 'cog')
+-#   .GroupList
+-#     - current_user.groups.each do |group|
+-#       .GroupBox
+-#         = link_to '#' do
+-#           .GroupBox__Name
+-#             = group.name
+-#           .GroupBox__NewMessage
+-#             まだメッセージがありません

@@ -1,29 +1,69 @@
-.MainChat
-  .MainHeader
-    .GroupBox
-      .GroupDetails
-        .GroupName TEST
-        %ul.GroupDetails__Menber 
-          Menber :
-          %li.Menber__lists name
-      .Edit
-        = link_to "/#", class: "Edit__btn" do
-          Edit
-  .Message
-    .MassageBox
-      .MassageDetails
-        .MassageDetails__Massanger tomato1125
-        .MassageDetails__Date 2020/06/08(Mon) 12:38:30
-      .MassageText 
-        おはようございます。
-  .MainChat__Form
-    .Form__Tmp
-    %form.FormBox
-      .FormBox__FormTmp
-      .MessageBox
-        %input.MessageBox__text{"placeholder": "type a message", "type": "text"}
-        %label.MessageBox__image{"for": "images"}
-          = icon('far', 'image')
-          %input.MessageBox__image__noName{"type": "file", "name": "message", "id": "images"}
-      .send
-        %input.send-btn{"type": "submit", "name": "commit", "value": "Send"}
+.Chat
+  .ChatHeader
+    .ChatHeader__group
+      .ChatHeader__groupName
+        = @group.name
+      %ul.ChatHeader__memberList
+        Member：
+        %li.ChatHeader__member
+          - @group.users.each do|user|
+            =user.name
+    = link_to edit_group_path(@group),class: "ChatHeader__editButton" do
+      Edit
+  .MessageField
+    = render @messages
+    -# .MessageBox ←部分テンプレート部分
+    -#   .MessageInfo
+    -#     .MessageInfo__userName
+    -#       ユーザー名
+    -#     .MessageInfo__date
+    -#       2020/2/2 12:22
+    -#   .Message
+    -#     %p.Message__content
+    -#       こんにちは
+  .Footer
+    = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
+      .Form__contents
+        = f.text_field :content, class: 'Form__inputContent', placeholder: 'type a message'
+        = f.label :image, class: 'Form__inputImage' do
+          = icon('far', 'image', class: 'Form__icon')
+          = f.file_field :image, class: 'Hidden'
+      = f.submit 'Send', class: 'Form__submit'
+  -# .Footer
+  -#   %form.Form
+  -#     .Form__contents
+  -#       %input.Form__inputContent{type: 'text', placeholder: 'type a message'}
+  -#       %label.Form__inputImage
+  -#         = icon('far', 'image', class: 'Form__icon')
+  -#         %input.Hidden{type: 'file'}
+  -#     %input.Form__submit{type: 'submit', value: 'Send'}
+
+-# .MainChat
+-#   .MainHeader
+-#     .GroupBox
+-#       .GroupDetails
+-#         .GroupName TEST
+-#         %ul.GroupDetails__Menber 
+-#           Menber :
+-#           %li.Menber__lists name
+-#       .Edit
+-#         = link_to "/#", class: "Edit__btn" do
+-#           Edit
+-#   .Message
+-#     .MassageBox
+-#       .MassageDetails
+-#         .MassageDetails__Massanger tomato1125
+-#         .MassageDetails__Date 2020/06/08(Mon) 12:38:30
+-#       .MassageText 
+-#         おはようございます。
+-#   .MainChat__Form
+-#     .Form__Tmp
+-#     %form.FormBox
+-#       .FormBox__FormTmp
+-#       .MessageBox
+-#         %input.MessageBox__text{"placeholder": "type a message", "type": "text"}
+-#         %label.MessageBox__image{"for": "images"}
+-#           = icon('far', 'image')
+-#           %input.MessageBox__image__noName{"type": "file", "name": "message", "id": "images"}
+-#       .send
+-#         %input.send-btn{"type": "submit", "name": "commit", "value": "Send"}
